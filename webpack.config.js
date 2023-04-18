@@ -6,19 +6,21 @@ module.exports = {
   entry: {
     index: "./src/index.js",
   },
-  output: {
-    path: __dirname + "/dist",
-    filename: "bundle.js",
-  },
-  devServer: {
-    contentBase: __dirname + "/dist",
-  },
+  devtool: "inline-source-map",
   plugins: [
-    new HTMLPlugin({
+    new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./src/index.html",
     }),
   ],
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+    clean: true,
+  },
+  devServer: {
+    static: "./dist",
+  },
   resolve: {
     extensions: [".js"],
   },
