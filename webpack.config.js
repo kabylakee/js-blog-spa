@@ -3,9 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: {
-    index: "./src/index.js",
-  },
+  entry: ["@babel/polyfill", "./src/index.js"],
   devtool: "inline-source-map",
   plugins: [
     new HtmlWebpackPlugin({
@@ -23,5 +21,19 @@ module.exports = {
   },
   resolve: {
     extensions: [".js"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+    ],
   },
 };
