@@ -6,13 +6,15 @@ export class HeaderComponent extends Component {
   }
 
   initComponent() {
-    const btn = this.$el.querySelector(".js-header-start");
-    if (btn) {
-      btn.addEventListener("click", btnHandler.bind(this));
+    if (localStorage.getItem("visited")) {
+      this.hideComponent();
     }
+    const btn = this.$el.querySelector(".js-header-start");
+    btn.addEventListener("click", btnHandler.bind(this));
   }
 }
 
 function btnHandler() {
+  localStorage.setItem("visited", JSON.stringify(true));
   this.hideComponent();
 }
