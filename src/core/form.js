@@ -26,19 +26,5 @@ export class Form {
     });
 
     return formIsValid;
-
-    // const acc = validators.reduce(
-    //   (acc, val, index) => {
-    //     if (val(this.container[controls[index]].value)) {
-    //       acc[true] = acc[true] + 1;
-    //       return acc;
-    //     } else {
-    //       acc[false] = acc[false] + 1;
-    //       return acc;
-    //     }
-    //   },
-    //   { true: 0, false: 0 }
-    // );
-    // return acc[false] === 0;
   }
 }
