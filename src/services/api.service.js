@@ -15,7 +15,20 @@ class ApiService {
       const response = await fetch(request);
 
       return await response.json();
-      
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async getPosts() {
+    try {
+      const request = new Request(this.url + "posts.json", {
+        method: "GET",
+      });
+      const response = await fetch(request);
+      const posts = await response.json();
+
+      return posts;
     } catch (error) {
       console.error(error);
     }
