@@ -12,13 +12,27 @@ export class PostsComponent extends Component {
     const posts = TransformService.fbObjectToArray(fbData);
 
     posts.forEach((obj) => {
-      this.$el.querySelector(".panel-title").textContent = obj.title;
-      this.$el.querySelector(".tag").textContent = obj.type;
-      this.$el.querySelector(".multi-line").textContent = obj.fulltext;
-      this.$el.querySelector(".panel-footer").textContent = obj.date;
+      this.$el.insertAdjacentHTML("beforeend", renderPost(obj));
     });
-    console.log("posts", posts);
   }
 
   initComponent() {}
+}
+
+function renderPost(post) {
+  return `<div class="panel">
+          <div class="panel-head">
+            <p class="panel-title">${post.title}</p>
+            <ul class="tags">
+              <li class="tag tag-blue tag-rounded">${post.type}</li>
+            </ul>
+          </div>
+          <div class="panel-body">
+            <p class="multi-line">${post.fulltext}</p>
+          </div>
+          <div class="panel-footer w-panel-footer">
+            <small>${post.date}</small>
+          </div>
+        </div>
+      </div>`;
 }
