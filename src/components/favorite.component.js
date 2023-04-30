@@ -7,32 +7,19 @@ export class FavoriteComponent extends Component {
     this.loader = loader;
   }
 
-  initComponent() {
-    // this.$el.addEventListener("click", linkClickHnadler.bind(this));
-    // const postId = event.target.textContent;
-    // this.$el.innerHTML = "";
-    // this.loader.showComponent();
-    // const post = apiService.getPostById(postId);
-    // this.loader.hideComponent();
-    // this.$el.insertAdjacentHTML("beforeend", renderPost(post));
-  }
-
-  async onShow() {
+  onShow() {
     this.$el.innerHTML = "";
 
     const favorites = JSON.parse(localStorage.getItem("favorites"));
-    const html = await renderList(favorites, this.$el, this.loader);
-
-    console.log("html", html);
+    renderList(favorites, this.$el, this.loader);
   }
 }
 
 async function renderList(list = [], event, loader) {
   if (list.length) {
-    let post = {};
     list.forEach(async (postID) => {
       loader.showComponent();
-      post = await apiService.getPostById(postID);
+      const post = await apiService.getPostById(postID);
       loader.hideComponent();
 
       event.insertAdjacentHTML("beforeend", renderPost(post));
@@ -42,19 +29,6 @@ async function renderList(list = [], event, loader) {
     event.insertAdjacentHTML("beforeend", noDataHtml);
   }
 }
-
-// async function linkClickHnadler(event) {
-//   event.preventDefault();
-
-//   if (event.target.classList.contains("js-link")) {
-//     const postId = event.target.textContent;
-//     this.loader.showComponent();
-
-//     const post = await apiService.getPostById(postId);
-//     this.loader.hideComponent();
-//     this.$el.insertAdjacentHTML("beforeend", renderPost(post));
-//   }
-// }
 
 function renderPost(post) {
   const tag =
