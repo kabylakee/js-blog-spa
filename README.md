@@ -8,5 +8,6 @@ This is a single-page responsive web application template. It was created with 
     <li>CSS</li>
     <li>Javascript</li>
     <li>Webpack</li>
+    <li>Babel</li>
     <li>Firebase</li>
 </ul>
