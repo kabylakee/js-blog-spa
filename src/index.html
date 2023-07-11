@@ -32,7 +32,9 @@
     <header id="header">
       <h1 class="title">Blog 001001</h1>
       <h2 class="subtitle">Create articles and add them to favorites</h2>
-      <button class="get-started button button-primary button-large js-header-start">
+      <button
+        class="get-started button button-primary button-large js-header-start"
+      >
         Get started
       </button>
     </header>
@@ -51,49 +53,50 @@
         </div>
       </div>
 
-       <div class="form-control">
-        <label>Title</label>
-        <input type="text" name="title" placeholder="Enter the title">
-       </div>
-       
-       <div class="form-control">
-        <label>Text</label>
-        <textarea name="fulltext" placeholder="Enter post text"></textarea>
-       </div>
-       
-       <div class="form-control">
-        <label>Type</label>
-        <select name="type">
+      <form id="create">
+        <h1 class="h4">Create new post</h1>
+
+        <div class="form-control">
+          <label>Title</label>
+          <input type="text" name="title" placeholder="Enter the title" />
+        </div>
+
+        <div class="form-control">
+          <label>Text</label>
+          <textarea name="fulltext" placeholder="Enter post text"></textarea>
+        </div>
+
+        <div class="form-control">
+          <label>Type</label>
+          <select name="type">
             <option value="note" selected>Note</option>
             <option value="news">News</option>
-        </select>
-       </div>
-       
-       <button
-       class="button-primary button-round button-shadow"
-       type="submit"
-       >Create</button>
-    
-    </form>
-    <div id="posts">
-        <div class="panel">
-            <div class="panel-head">
-                <p class="panel-title">Post title</p>
-                <ul class="tags">
-                    <li class="tag tag-blue tag-rounded">News</li>
-                </ul>
-            </div>
-            <div class="panel-body">
-                <p class="multi-line">Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="panel-footer w-panel-footer">
-                <small>12.12.12</small>
-            </div>
+          </select>
         </div>
-    </div>
-    
-    <div id="favorite" class="hide"></div>
 
+        <button class="button-primary button-round button-shadow" type="submit">
+          Create
+        </button>
+      </form>
+
+      <div id="posts" class="hide">
+        <div class="panel">
+          <div class="panel-head">
+            <p class="panel-title">Post title</p>
+            <ul class="tags">
+              <li class="tag tag-blue tag-rounded">News</li>
+            </ul>
+          </div>
+          <div class="panel-body">
+            <p class="multi-line">Lorem ipsum dolor sit amet.</p>
+          </div>
+          <div class="panel-footer w-panel-footer">
+            <small>12.12.12</small>
+          </div>
+        </div>
+      </div>
+
+      <div id="favorite" class="hide"></div>
     </section>
   </body>
 </html>
