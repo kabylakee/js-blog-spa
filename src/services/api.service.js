@@ -33,6 +33,20 @@ class ApiService {
       console.error(error);
     }
   }
+
+  async getPostById(id) {
+    try {
+      const request = new Request(`${this.url}posts/${id}.json`, {
+        method: "GET",
+      });
+      const response = await fetch(request);
+      const posts = await response.json();
+
+      return posts;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
 
 export const apiService = new ApiService(
